@@ -13,10 +13,10 @@ public class Npc : Character
         
     }
 
-    public override bool TakeTurn()
+    public override bool TakeTurn(Map map)
     {
         Console.SetCursorPosition(_position.X, _position.Y);
-        Console.Write(" ");
+        Console.Write(map.GetCell(_position.X, _position.Y).Visuals);
 
         int index = Random.Shared.Next(availableDirections.Count);
         Vector2 direction = availableDirections[index];

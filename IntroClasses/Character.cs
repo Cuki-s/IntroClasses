@@ -37,5 +37,5 @@ public abstract class Character
         }
     }
 
-    public abstract bool TakeTurn();
+    public abstract bool TakeTurn(Map map);
 }

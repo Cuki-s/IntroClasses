@@ -33,7 +33,7 @@ public class Program
         {
             foreach (Character character in characters)
             {
-                isPlaying = character.TakeTurn();
+                isPlaying = character.TakeTurn(map);
             }
         }
         

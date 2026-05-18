@@ -9,9 +9,12 @@ public class Player : Character
         _inputMap = inputMap;
     }
 
-    public override bool TakeTurn()
+    public override bool TakeTurn(Map map)
     {
-        var isPlaying = IsPlaying(out var input);
+        bool isPlaying = true;
+        var input = Console.ReadKey(true);
+        Console.SetCursorPosition(_position.X, _position.Y);
+        Console.Write(map.GetCell(_position.X, _position.Y).Visuals);
 
         if (_inputMap.ContainsKey(input.Key))
         {
@@ -30,15 +33,6 @@ public class Player : Character
 
         Display();
         
-        return isPlaying;
-    }
-
-    private bool IsPlaying(out ConsoleKeyInfo input)
-    {
-        bool isPlaying = true;
-        input = Console.ReadKey(true);
-        Console.SetCursorPosition(_position.X, _position.Y);
-        Console.Write(" ");
         return isPlaying;
     }
 }
