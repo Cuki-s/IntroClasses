@@ -16,12 +16,12 @@ public abstract class Character
         Console.Write(_avatar);
     }
 
-    public void Move(Vector2 direction, Map map)
+    public bool Move(Vector2 direction, Map map)
     {
-        Move(direction.X, direction.Y, map);
+        return Move(direction.X, direction.Y, map);
     }
 
-    public void Move(int diffX, int diffY, Map map)
+    public bool Move(int diffX, int diffY, Map map)
     {
         int targetX = _position.X + diffX;
         int targetY = _position.Y + diffY;
@@ -36,9 +36,12 @@ public abstract class Character
                     _position.Y = targetY;
                     _position.X = targetX;
                     cell.Occupant = this;
+                    return true;
                 }
             }
         }
+
+        return false;
     }
 
     public abstract bool TakeTurn(Map map);
