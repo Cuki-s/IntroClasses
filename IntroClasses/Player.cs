@@ -4,7 +4,7 @@ public class Player : Character
 {
     private readonly Dictionary<ConsoleKey, Vector2> _inputMap;
 
-    public Player(Vector2 startingPosition, Dictionary<ConsoleKey, Vector2> inputMap) : base(startingPosition)
+    public Player(Vector2 startingPosition, Map map, Dictionary<ConsoleKey, Vector2> inputMap) : base(startingPosition, map)
     {
         _inputMap = inputMap;
     }
