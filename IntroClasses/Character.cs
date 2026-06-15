@@ -2,8 +2,11 @@ namespace IntroClasses;
 
 public abstract class Character : GameObject
 {
+    private List<Item> _inventory;
+    
     public Character(char avatar, Vector2 startingPosition, Map map) : base(avatar, startingPosition)
     {
+        _inventory = [];
         Cell cell = map.GetCell(_position.X, _position.Y);
         cell.Occupant = this;
     }
@@ -30,7 +33,9 @@ public abstract class Character : GameObject
                     cell.Occupant = this;
                     if (cell.HasItem())
                     {
-                        cell.TakeItem();
+                        // Item item = cell.TakeItem();
+                        // AddItem(item);
+                        AddItem(cell.TakeItem());
                     }
                     return true;
                 }
@@ -38,6 +43,11 @@ public abstract class Character : GameObject
         }
 
         return false;
+    }
+
+    public void AddItem(Item item)
+    {
+        _inventory.Add(item);
     }
 
     public abstract bool TakeTurn(Map map);
