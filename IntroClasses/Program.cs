@@ -13,6 +13,9 @@ public class Program
         
         Map map = new Map();
         map.LoadFromFile("level1.txt");
+
+        Item item = new Item('*', new Vector2(1, 2), map);
+        
         
         bool isPlaying = true;
         Vector2 startingPosition = new Vector2(4, 2);
@@ -24,6 +27,7 @@ public class Program
         List<Character> characters = [hero, anotherHero];
 
         map.Display();
+        item.Display();
         
         foreach (Character character in characters)
         {
