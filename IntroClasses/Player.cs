@@ -33,6 +33,11 @@ public class Player : Character
                 case ConsoleKey.Q:
                     isPlaying = false;
                     break;
+                case ConsoleKey.I:
+                    _inventory.Display();
+                    Console.ReadKey(true);
+                    _inventory.Hide();
+                    break;
             }
         }
 

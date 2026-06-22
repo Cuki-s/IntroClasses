@@ -2,11 +2,11 @@ namespace IntroClasses;
 
 public abstract class Character : GameObject
 {
-    private List<Item> _inventory;
+    protected Inventory _inventory;
     
     public Character(char avatar, Vector2 startingPosition, Map map) : base(avatar, startingPosition)
     {
-        _inventory = [];
+        _inventory = new Inventory();
         Cell cell = map.GetCell(_position.X, _position.Y);
         cell.Occupant = this;
     }
