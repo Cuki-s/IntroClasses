@@ -8,7 +8,11 @@ public class Cell
 
     public void Display()
     {
-        if (Item != null)
+        if (IsOccupied())
+        {
+            Occupant.Display();
+        }
+        else if (HasItem())
         {
             Item.Display();
         }
@@ -16,6 +20,11 @@ public class Cell
         {
             Console.Write(Visuals);
         }
+    }
+
+    public bool IsOccupied()
+    {
+        return Occupant != null;
     }
 
     public bool HasItem()
@@ -34,5 +43,19 @@ public class Cell
         Item = null;
         
         return item;
+    }
+
+    /// <summary>
+    /// Place character on this cell by putting it into Occupant field.
+    /// </summary>
+    /// <param name="character">Character to put into Occupant field</param>
+    public void Occupy(Character character)
+    {
+        Occupant = character;
+    }
+
+    public void Leave()
+    {
+        Occupant = null;
     }
 }

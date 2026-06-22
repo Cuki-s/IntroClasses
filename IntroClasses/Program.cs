@@ -27,12 +27,6 @@ public class Program
         List<Character> characters = [hero, anotherHero];
 
         map.Display();
-        item.Display();
-        
-        foreach (Character character in characters)
-        {
-            character.Display();
-        }
         
         while (isPlaying)
         {

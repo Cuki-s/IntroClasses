@@ -30,7 +30,7 @@ public class Map
         {
             foreach (var cell in row)
             {
-                Console.Write(cell.Visuals);
+                cell.Display();
             }
             Console.WriteLine();
         }

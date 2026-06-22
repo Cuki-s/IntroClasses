@@ -23,8 +23,8 @@ public class Npc : Character
         Vector2 direction = availableDirections[index];
         if (Move(direction, map))
         {
+            cell.Leave();
             cell.Display();
-            cell.Occupant = null;
         }
         Display();
         return true;
